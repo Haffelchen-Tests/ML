@@ -1,0 +1,5 @@
+main: me.haffel.ml.Main
+name: ML
+version: 1.0
+author: Haffel
+prefix: ML

@@ -1,0 +1,18 @@
+Location loc = new Location(world, 100, 64, 150);
+
+// create the event and populate with data
+CustomEvent myEvent = new CustomEvent(player, loc);
+
+// call the event (notify all other plugins)
+Bukkit.getPluginManager().callEvent(myEvent);
+
+// check if event was cancelled (if event is cancellable)
+if (myEvent.isCancelled()) {
+    return; // some plugin cancelled the event, take no action.
+}
+
+// load new data from the event (in case any plugins changed the event)
+loc = myEvent.getLocation();
+
+// finally teleport the player
+player.teleport(loc);
